@@ -28,8 +28,8 @@ public class LoggerTest {
 
 	@Test
 	public void logBackXMLFileCreatedOrNotTestCase() {
-		ClassLoader classLoader = getClass().getClassLoader();
-		File logFile = new File(classLoader.getResource("logback.xml").getFile());
+		LoggerContext context = (LoggerContext) LoggerFactory.getILoggerFactory();
+		File logFile = ConfigurationWatchListUtil.getConfigurationWatchList(context).getCopyOfFileWatchList().get(0);
 		assertTrue(logFile.exists(),"You have to create logback.xml file in resources folder");
 
 	}
