@@ -76,8 +76,8 @@ public class NewsSourceController {
 	 * 
 	 */
 	@DeleteMapping("/newssource/{newssourceId}")
-	public ResponseEntity<?> deleteNewsSource(@PathVariable int newsSrcId){
-		boolean flag = newsSourceService.deleteNewsSource(newsSrcId);
+	public ResponseEntity<?> deleteNewsSource(@PathVariable int newssourceId){
+		boolean flag = newsSourceService.deleteNewsSource(newssourceId);
 		if(flag) {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
@@ -97,10 +97,10 @@ public class NewsSourceController {
 	 * getNewsSourceById
 	 */
 	@PutMapping("/newssource/{newssourceId}")
-	public ResponseEntity<?> updateNewsSource(@RequestBody NewsSource newsSrc,@PathVariable int newsSrcId){
+	public ResponseEntity<?> updateNewsSource(@RequestBody NewsSource newsSrc,@PathVariable int newssourceId){
 		
 		try {
-			NewsSource ns = newsSourceService.updateNewsSource(newsSrc, newsSrcId);
+			NewsSource ns = newsSourceService.updateNewsSource(newsSrc, newssourceId);
 			if(ns!=null) {
 				return new ResponseEntity<>(HttpStatus.OK);
 			}
@@ -122,9 +122,9 @@ public class NewsSourceController {
 	 * 
 	 */
 	@GetMapping("/newssource/{userId}/{newssourceId}")
-	public ResponseEntity<?> getNewsSourceByUserId(@PathVariable String userId,@PathVariable int newsSrcId){
+	public ResponseEntity<?> getNewsSourceByUserId(@PathVariable String userId,@PathVariable int newssourceId){
 		try {
-			NewsSource newsSrcObj = newsSourceService.getNewsSourceById(userId, newsSrcId);
+			NewsSource newsSrcObj = newsSourceService.getNewsSourceById(userId, newssourceId);
 			if(newsSrcObj!=null)
 				return new ResponseEntity<>(HttpStatus.OK);
 		} catch (NewsSourceNotFoundException e) {
